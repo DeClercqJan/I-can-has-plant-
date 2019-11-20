@@ -24,14 +24,9 @@
     // standaarddata voor moskou await fetch("http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=fac9676aa8de6252977e1a8672e861e2")
     // example await fetch("https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22")
     //  gent await fetch("https://api.openweathermap.org/data/2.5/weather?q=Gent,be&appid=fac9676aa8de6252977e1a8672e861e2")
-    await fetch(
-      "https://trefle.io/api/plants?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09"
-    )
-      // https://trefle.io/api/plants?q=rosemary
-      // https://trefle.io/api/plants
-      // https://trefle.io/some-url?token=YOUR-TOKEN
-      //.then(response => console.log(response));
-
+    // await fetch("https://plantsdb.xyz/search?limit=100&fields=Genus,Species,AcceptedSymbol"
+    // dit retourneert 100 elementen en ze hebben enkel de properties genus, Species, ... "https://plantsdb.xyz/search?limit=100&fields=Genus,Species,AcceptedSymbol"
+    await fetch("https://plantsdb.xyz/search?limit=100&fields=Genus=Pinus,Species")
       .then(ste => ste.json())
       .then(result => {
         console.log(result);
@@ -52,93 +47,6 @@
   }
   document.getElementById("run").addEventListener("click", test);
 
-  /* EENS ANDERE MANIER DAN FETCH PROBEREN
-  function reqListener () {
-    console.log(this.responseText);
-  }
-  
-  var url = "https://api.github.com/repos/mozilla/kuma/contributors";
-  
-  var oReq = new XMLHttpRequest();
-  oReq.addEventListener('load', reqListener);
-  oReq.open("get", url, true);
-  oReq.send();
-*/
-
-  // PROBEREN TE ZIEN OF IK PROBLEEM VAN "(Reason: CORS header ‘Access-Control-Allow-Origin’ missing)." KAN OPLOSSEN MET XMLHTTPREQ
-  var request = new XMLHttpRequest();
-  /*
-  request.open(
-    "GET",
-    "https://api.github.com/repos/mozilla/kuma/contributors",
-    true
-  );
-  */
- /*
- request.open(
-    "GET",
-    "https://trefle.io/api/plants?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09",
-    true
-  );
-  // request.setRequestHeader("Access-Control-Allow-Origin", "*");
-
-  request.send();
-
-  request.onreadystatechange = function() {
-    if (this.readyState == this.HEADERS_RECEIVED) {
-      // Get the raw header string
-      var headers = request.getAllResponseHeaders();
-
-      // Convert the header string into an array
-      // of individual headers
-      var arr = headers.trim().split(/[\r\n]+/);
-
-      // Create a map of header names to values
-      var headerMap = {};
-      arr.forEach(function(line) {
-        var parts = line.split(": ");
-        var header = parts.shift();
-        var value = parts.join(": ");
-        headerMap[header] = value;
-        console.log(value);
-      });
-    }
-  };
-*/
-/*
-    // From http://foo.com/
-fetch("https://trefle.io/api/plants?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09", {
-    mode: 'no-cors' // 'cors' by default
-  })
-  .then(function(response) {
-      console.log(response)
-    // Do something with response
-  });
-  */
-    // From http://foo.com/
-    /*
-fetch("https://trefle.io/api/plants?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09")
-  .then(function(response) {
-      console.log(response)
-    // Do something with response
-  });
-  */
-
-  const xhr = new XMLHttpRequest();
-xhr.open('POST', 'https://trefle.io/api/plants?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09');
-// test_get = xhr.getRequestHeader();
-test_set = xhr.setRequestHeader('Access-Control-Allow-Origin', '');
-// xhr.send('<person><name>Arun</name></person>'); 
-xhr.send(); 
-console.log(test_set);
-
-  /*
-This file contains examples of how to interact with Lexigram APIs in Javacript.
-
-Each of the examples inspect the responses printing some relevant properties.
-For comprehensive documentation that includes information of all API responses
-please visit http://docs.lexigram.io
-*/
 
   /* You can grab your API KEY from your user profile at https://app.lexigram.io */
   var apiKey =
@@ -323,7 +231,7 @@ Keyword search of keyword diabetes
   }
 
   // The sequence of sample function calls for demo purposes */
-exampleEntityExtraction();
+  //exampleEntityExtraction();
   // exampleHighlightEntities();
   // exampleConcept();
   // exampleConceptAncestors();

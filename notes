@@ -9,6 +9,8 @@ PROBLEM: CORS header ‘Access-Control-Allow-Origin’ missing)
 VEEL GEPROBEERD IN EXAMPLE
 - ook mogelijk: api laat geen local toe
 NA DE LUNCHPAUZE EENS PROBEREN SITE ONLINE TE ZETTEN
+
+
 -> eens https://postwoman.io/ checken om te zien hoe zaken 
 
 https://docs.lexigram.io/v1/welcome/getting-started
@@ -21,5 +23,6 @@ https://fdc.nal.usda.gov/
 http://strains.evanbusse.com/
 
 
-
-
+https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSMissingAllowOrigin
+https://javascript.info/fetch-crossorigin
