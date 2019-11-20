@@ -26,6 +26,8 @@ http://strains.evanbusse.com/
 
 
 VER TE BEKIJKE NVOOR PROBLEEM VAN GEEN ACCES:
+-> eerst te checken: heb eens heel basic gedaan, ik geloof met "no cors" ofzo en dan kreeg ik een een respons met niet veel in
+
 https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSMissingAllowOrigin
 https://javascript.info/fetch-crossorigin

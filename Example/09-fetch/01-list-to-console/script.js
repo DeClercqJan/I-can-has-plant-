@@ -28,18 +28,19 @@
     // dit retourneert 100 elementen en ze hebben enkel de properties genus, Species, ... "https://plantsdb.xyz/search?limit=100&fields=Genus,Species,AcceptedSymbol"
     // await fetch("https://plantsdb.xyz/search?limit=100&genus=Hypericum&species=perforatum")
 
-    /* await fetch(
-      "https://trefle.io/api/plants?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/"
+    await fetch(
+      "https://trefle.io/api/plants?q=hypericum&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html"
       )
       .then(response => console.log(response));
-*/
+
+/*
     fetch(
       `https://trefle.io/api/plants?q=hypericum&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html`,
       {
         method: "GET",
         headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html"
+          "Content-Type": "application/json"
+        //  "Access-Control-Allow-Origin": "https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html"
         },
         // credentials: "same-origin"
       }
@@ -56,6 +57,7 @@
         error.message; //=> String
       }
     );
+    */
     /*
      .then(ste => ste.json())
       .then(result => {
