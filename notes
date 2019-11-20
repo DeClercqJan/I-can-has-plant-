@@ -1,3 +1,4 @@
+
 ideetjes
 - planten-api
 - chemische stoffen/werkzame medicatie
@@ -22,11 +23,19 @@ https://fdc.nal.usda.gov/
 
 http://strains.evanbusse.com/
 
+
+
+VER TE BEKIJKE NVOOR PROBLEEM VAN GEEN ACCES:
 https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSMissingAllowOrigin
 https://javascript.info/fetch-crossorigin
+https://github.github.io/fetch/
+cors firefox extension    toevoegen overal 
+krijg andere error: Reason: CORS preflight channel did not succeed
+https://trefle.io/doc/swagger.json
 
-https://trefle.io/api/plants?q=rosemary&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09
+https://trefle.io/api/plants?q=hypericum&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html
 
+firefox bug?? https://bugzilla.mozilla.org/show_bug.cgi?id=700837
+As of Firefox 68, https pages are not permitted to access http://localhost, although this may be changed by Bug 1488740. https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSDidNotSucceed
 
-https://trefle.io/api/plants?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html

@@ -27,9 +27,37 @@
     // await fetch("https://plantsdb.xyz/search?limit=100&fields=Genus,Species,AcceptedSymbol"
     // dit retourneert 100 elementen en ze hebben enkel de properties genus, Species, ... "https://plantsdb.xyz/search?limit=100&fields=Genus,Species,AcceptedSymbol"
     // await fetch("https://plantsdb.xyz/search?limit=100&genus=Hypericum&species=perforatum")
-    await fetch("https://trefle.io/api/plants?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/")
-     
-    .then(ste => ste.json())
+
+    /* await fetch(
+      "https://trefle.io/api/plants?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/"
+      )
+      .then(response => console.log(response));
+*/
+    fetch(
+      `https://trefle.io/api/plants?q=hypericum&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html"
+        },
+        // credentials: "same-origin"
+      }
+    ).then(
+      function(response) {
+        response.status; //=> number 100–599
+        response.statusText; //=> String
+        response.headers; //=> Headers
+        response.url; //=> String
+
+        return response.text();
+      },
+      function(error) {
+        error.message; //=> String
+      }
+    );
+    /*
+     .then(ste => ste.json())
       .then(result => {
         console.log(result);
         // console.log(result.city)
@@ -44,11 +72,10 @@
             console.log(element.weather[0].description);
 
         });
-*/
       });
+*/
   }
   document.getElementById("run").addEventListener("click", test);
-
 
   /* You can grab your API KEY from your user profile at https://app.lexigram.io */
   var apiKey =
