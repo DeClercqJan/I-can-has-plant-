@@ -2,7 +2,7 @@ ideetjes
 - planten-api
 - chemische stoffen/werkzame medicatie
 
-https://trefle.io/
+https://trefle.io/    key: cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09
 PROBLEM: CORS header ‘Access-Control-Allow-Origin’ missing)
 -thijs: zou header moeten zetten
 (heb ook wat met inspector header gespeeld)
@@ -22,7 +22,11 @@ https://fdc.nal.usda.gov/
 
 http://strains.evanbusse.com/
 
-
 https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSMissingAllowOrigin
 https://javascript.info/fetch-crossorigin
+
+https://trefle.io/api/plants?q=rosemary&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09
+
+
+https://trefle.io/api/plants?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html

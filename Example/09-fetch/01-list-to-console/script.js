@@ -26,7 +26,8 @@
     //  gent await fetch("https://api.openweathermap.org/data/2.5/weather?q=Gent,be&appid=fac9676aa8de6252977e1a8672e861e2")
     // await fetch("https://plantsdb.xyz/search?limit=100&fields=Genus,Species,AcceptedSymbol"
     // dit retourneert 100 elementen en ze hebben enkel de properties genus, Species, ... "https://plantsdb.xyz/search?limit=100&fields=Genus,Species,AcceptedSymbol"
-    await fetch("https://plantsdb.xyz/search?limit=100&fields=Genus=Pinus,Species")
+    // await fetch("https://plantsdb.xyz/search?limit=100&genus=Hypericum&species=perforatum")
+    await fetch("https://trefle.io/api/plants?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/")
       .then(ste => ste.json())
       .then(result => {
         console.log(result);
