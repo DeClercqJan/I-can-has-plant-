@@ -30,10 +30,16 @@
 
     await fetch(
       "https://trefle.io/api/plants?q=hypericum&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html"
-      )
-      .then(response => console.log(response));
+    )
+      .then(response => response.json())
+      .then(data => {
+        // Here's a list of repos!
+        console.log(data);
+      });
 
-/*
+    //.then(response => console.log(response));
+
+    /*
     fetch(
       `https://trefle.io/api/plants?q=hypericum&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html`,
       {

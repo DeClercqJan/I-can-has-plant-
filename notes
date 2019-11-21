@@ -3,16 +3,6 @@ ideetjes
 - planten-api
 - chemische stoffen/werkzame medicatie
 
-https://trefle.io/    key: cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09
-PROBLEM: CORS header ‘Access-Control-Allow-Origin’ missing)
--thijs: zou header moeten zetten
-(heb ook wat met inspector header gespeeld)
-VEEL GEPROBEERD IN EXAMPLE
-- ook mogelijk: api laat geen local toe
-NA DE LUNCHPAUZE EENS PROBEREN SITE ONLINE TE ZETTEN
-
-
--> eens https://postwoman.io/ checken om te zien hoe zaken 
 
 https://docs.lexigram.io/v1/welcome/getting-started
 https://developers.teleport.org/api/
@@ -24,9 +14,17 @@ https://fdc.nal.usda.gov/
 http://strains.evanbusse.com/
 
 
+https://trefle.io/    key: cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09
+PROBLEM: CORS header ‘Access-Control-Allow-Origin’ missing)
+-thijs: zou header moeten zetten
+(heb ook wat met inspector header gespeeld)
+VEEL GEPROBEERD IN EXAMPLE
+- ook mogelijk: api laat geen local toe
+NA DE LUNCHPAUZE EENS PROBEREN SITE ONLINE TE ZETTEN
+-> eens https://postwoman.io/ checken om te zien hoe zaken 
+EDIT: GEVONDEN: https://css-tricks.com/using-fetch/ kon goede response krijgen, maar dan moest het nog naar json worden omgezet
 
 VER TE BEKIJKE NVOOR PROBLEEM VAN GEEN ACCES:
--> eerst te checken: heb eens heel basic gedaan, ik geloof met "no cors" ofzo en dan kreeg ik een een respons met niet veel in
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSMissingAllowOrigin
