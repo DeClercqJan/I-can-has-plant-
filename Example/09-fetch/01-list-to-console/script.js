@@ -37,9 +37,12 @@
           // EEBNS IN MEERDERE STAPPEN BEKIJKEN
           // https://trefle.io/api/plants?q=Hypericum perforatum&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html"
           // https://trefle.io/api/species/144279?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html"
-      
-          )
-      .then(response => response.json())
+          
+          // "https://trefle.io/api/plants?q=Hypericum&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html"
+          //"https://trefle.io/api/plants/144183?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html"          )
+// "https://trefle.io/api/species?toxicity=slight&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html")
+"https://plantsdb.xyz/search?limit=1000&toxicity=Slight")
+.then(response => response.json())
       .then(data => {
         // Here's a list of repos!
         console.log(data);

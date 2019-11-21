@@ -1,9 +1,33 @@
 https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html
 
+vb met sint janskruid ( Hypericum perforatum
+logica:
+1 invoer van naam. (mogelijk meerdere ,idealiter, verdere spcieficicering)
+dan moet er gecheckt worden of die naam bestaat
+...
+dan moet de id gepakt worden
+144279
+
 
 ideetjes
-- planten-api
+- planten-api: eerst treflio.io geprobeerd, maar bevat geen toxicity-info. USDA (via plantsdb, nochtans de bron voor trefle, bevat het wel
+https://plantsdb.xyz/search?limit=1000&toxicity=Slight&fields=Genus,Species,AcceptedSymbol,Toxicity
+slight
+moderate
+none
+"" (null"
+severe
+https://plants.usda.gov/charinfo.html
+platable is ook interessant: eetbaar of niet
 - chemische stoffen/werkzame medicatie
+PROBLEEM: GEEN CHEMISCHE STOFFEN in
+- verder zoeken
+https://www.plant-image-analysis.org/api
+
+
+
+https://www.gbif.org/developer/occurrence
+https://www.gbif.org/species/3189486
 
 
 https://docs.lexigram.io/v1/welcome/getting-started
@@ -40,4 +64,14 @@ https://trefle.io/api/plants?q=hypericum&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&
 
 firefox bug?? https://bugzilla.mozilla.org/show_bug.cgi?id=700837
 As of Firefox 68, https pages are not permitted to access http://localhost, although this may be changed by Bug 1488740. https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSDidNotSucceed
+
+
+
+
+andere API testen? andere info gebruiken?
+
+leek me interessant om missing values te vinden https://open.fda.gov/apis/missing-values/
+
+ook interessant: is er geen *-achtig iets voor dei json zodat ik alles kan vinden dat er iets van heeft
+
 
