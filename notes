@@ -1,4 +1,7 @@
 https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html
+https://declercqjan.github.io/Startup-with-open-api/
+
+meer een app maken
 
 vb met sint janskruid ( Hypericum perforatum
 logica:
@@ -32,11 +35,14 @@ http://publish.plantnet-project.org/api/doc/
 key: 2a10DxISupBCpFchETM9OpTIe
 step by step guide: https://my.plantnet.org/usage (MAAR DIE CODE WERKT GELIJK NIET 
 
-
  https://github.com/plantnet/my.plantnet
 https://my-api.plantnet.org/?api-key=2a10DxISupBCpFchETM9OpTIe
 -> MORGEN TE BEKIJKEN https://github.com/plantnet/my.plantnet/blob/master/examples/post/run.js
-https://my-api.plantnet.org/?api-key=2a10DxISupBCpFchETM9OpTIe#!/v2/getV2IdentifyProject (je kan het testen op die pagina, maar momenteel is mijn accoutn precies geblokkeerd)
+https://my-api.plantnet.org/?api-key=2a10DxISupBCpFchETM9OpTIe#!/v2/getV2IdentifyProject (je kan het testen op die pagina, 
+
+GROTE VRAAG: KAN IK UPLOADSERVICE CREEEREN ZONDER PHP? VOORNU KAN IK BEGINNEN MET EEN ADRESBALK OFZO
+mss met een soort placeholder image met een bepaald pad
+
 
 eddyeddyeddyborremans@gmail.com test123 voor http://phylopic.org/api/a/
 

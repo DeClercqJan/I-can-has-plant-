@@ -12,8 +12,12 @@
 (() => {
   async function identify_plant() {
     await fetch(
-      "https://my-api.plantnet.org/v2/species?api-key=2a10DxISupBCpFchETM9OpTIe"
-    )
+      // "https://my-api.plantnet.org/v2/species?api-key=2a10DxISupBCpFchETM9OpTIe"
+      // "https://my-api.plantnet.org/v2/identify?images=https://www.ornamental-trees.co.uk/images/taxus-baccata-fastigiata-aurea-conifer-p432-5702_medium.jpg&organs=leaf&api-key=2a10DxISupBCpFchETM9OpTIe"
+      // "https://my-api.plantnet.org/v2/identify/all?images=https%3A%2F%2Fwww.ornamental-trees.co.uk%2Fimages%2Ftaxus-baccata-fastigiata-aurea-conifer-p432-5702_medium.jpg&organs=leaf&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe"
+      "https://my-api.plantnet.org/v2/identify/all?images=https://www.magicflowers.be/orchidee-mama-hartje.html&organs=leaf&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe"
+
+      )
       .then(response => response.json())
       .then(data => {
         // Here's a list of repos!
