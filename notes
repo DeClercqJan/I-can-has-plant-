@@ -23,7 +23,7 @@ platable is ook interessant: eetbaar of niet
 PROBLEEM: GEEN CHEMISCHE STOFFEN in
 - verder zoeken: IDEE: CAN I EAT PLANT?
 https://web.plant.id/plant-identification-api/
-https://plant.id/identification/l1EDGYDVh4x0F41 (werkt precies, mail gesturud voor key
+https://plant.id/identification/l1EDGYDVh4x0F41 (werkt precies, mail gesturud voor
 
 https://www.plant-image-analysis.org/api (doet niet veel, maar de aps die erop zijn gebasseerd wle
 https://identify.plantnet.org/query/the-plant-list/?view=results
@@ -32,10 +32,11 @@ http://publish.plantnet-project.org/api/doc/
 key: 2a10DxISupBCpFchETM9OpTIe
 step by step guide: https://my.plantnet.org/usage (MAAR DIE CODE WERKT GELIJK NIET 
 
+
  https://github.com/plantnet/my.plantnet
 https://my-api.plantnet.org/?api-key=2a10DxISupBCpFchETM9OpTIe
 -> MORGEN TE BEKIJKEN https://github.com/plantnet/my.plantnet/blob/master/examples/post/run.js
-
+https://my-api.plantnet.org/?api-key=2a10DxISupBCpFchETM9OpTIe#!/v2/getV2IdentifyProject (je kan het testen op die pagina, maar momenteel is mijn accoutn precies geblokkeerd)
 
 eddyeddyeddyborremans@gmail.com test123 voor http://phylopic.org/api/a/
 

@@ -10,15 +10,16 @@
 // You will have time to focus on it later.
 
 (() => {
-  // your code here
-
-  // Steps
-  // Install SEVE + NODEJS + NPX in terminal
-  // In terminal, go to file folder "example"
-  // Type "npm run start", which activates the script in package.json to activate the local server
-  // Type "npm run api"
-  // Now you'll be able to access the database-file in localhost:3000/heroes (it's possible a different port is activated; you'll see this in terminal)
-  // Run live preview of index.html and check console when clicking on button
+  async function identify_plant() {
+    await fetch(
+      "https://my-api.plantnet.org/v2/species?api-key=2a10DxISupBCpFchETM9OpTIe"
+    )
+      .then(response => response.json())
+      .then(data => {
+        // Here's a list of repos!
+        console.log(data);
+      });
+  }
 
   async function test() {
     // standaarddata voor moskou await fetch("http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=fac9676aa8de6252977e1a8672e861e2")
@@ -34,17 +35,14 @@
       //    "https://trefle.io/api/species?duration=Perennial&common_name=Intermountain%20rubberweed&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html"
       // "https://trefle.io/api/species?duration=Perennial&common_name=Intermountain%20rubberweed&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html"
       // "https://trefle.io/api/species?scientific_name=Hypericum&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html"
-      
+
       // EENS IN MEERDERE STAPPEN BEKIJKEN
       // https://trefle.io/api/plants?q=Hypericum perforatum&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html"
       // https://trefle.io/api/species/144279?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html"
 
       // "https://trefle.io/api/plants?q=Hypericum&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html"
       //"https://trefle.io/api/plants/144183?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html"          )
-      // "https://trefle.io/api/species?toxicity=slight&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html")
-      //  "https://my.plantnet.org/api"
-      // "https://my-api.plantnet.org/v2/identify/all?api-key=2a10DxISupBCpFchETM9OpTIe"
-      "https://my-api.plantnet.org/v2/species?api-key=2a10DxISupBCpFchETM9OpTIe"
+      "https://trefle.io/api/species?toxicity=slight&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&originorigin=https://declercqjan.github.io/Startup-with-open-api/Example/09-fetch/01-list-to-console/index.html"
     )
       .then(response => response.json())
       .then(data => {
@@ -98,7 +96,7 @@
       });
 */
   }
-  document.getElementById("run").addEventListener("click", test);
+  document.getElementById("run").addEventListener("click", identify_plant);
 
   /* You can grab your API KEY from your user profile at https://app.lexigram.io */
   var apiKey =
