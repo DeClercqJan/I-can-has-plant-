@@ -92,6 +92,16 @@ function change_html() {
     plant_toxicity_final = plant_toxicity_original;
   }
 
+  var target_p_populated = document.createElement("p");
+  target_p_populated.id = "target_p_populated";
+  var target_p_populated_content = document.createTextNode(`The toxicity of ${plant_name} is ${plant_toxicity_final}`);
+  target_p_populated.appendChild(target_p_populated_content);
+  var target_p = document.getElementById("target_p");
+  var target = target_p.parentNode;
+  target.replaceChild(target_p_populated, target_p);
+  // DEZE RESETTEN OPDAT TELKENS ALS JE KLIKT OP DE KNOP DE PARAGRAAF VERVANGEN WORDT IN PLAATS VAN DAT ER EEN EXTRA PARAGRAAF GECREEERD WORDT
+  target_p_populated.id = "target_p";
+
   // let result_p = document.createElement("p");
   // let result_text = result_p.textContent = `The toxicity of ${plant_name} is ${plant_toxicity_final} </br>`;
   // result = result_p.appendChild(result_text);
@@ -132,13 +142,4 @@ var parentDiv = sp2.parentNode;
 parentDiv.replaceChild(sp1, sp2);
 */
 
-let target_p_populated = document.createElement("p");
-let target_p_populated.id = "target_p_populated";
-let target_p_populated_content = document.createTextNode(`The toxicity of ${plant_name} is ${plant_toxicity_final}`);
-target_p_populated.appendChild(target_p_populated_content);
-let target_p = document.getElementById("target_p");
-let target = target_p.parentNode;
-target.replaceChild(target_p_populated, target_p);
-// DEZE HIERONDER NODIG OM DE BOEL TE RESETTEN ZODAT TELKENS ALS JE OP DE KNOP DRUKT, DE PARAGRAAF WORDT VERVANGEN
-document.getElementById("target_p_populated").id = "target_p"
 }
