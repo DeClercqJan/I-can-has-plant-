@@ -1,13 +1,17 @@
-console.log("test");
+// console.log("test javascript file");
 
 document.getElementById("run").addEventListener("click", function() {
   // console.log("hallo, knop werkt");
   run_program();
 });
 
+let plant_name = "plant_name (variable to be populated)";
+// let plant_toxicity_original = "plant_toxicty (variable to be populated)";
+let plant_toxicity_original = "";
+console.log(plant_toxicity_original);
+
 // MOET IK NIET ZORGEN DAT DIT IN DE JUISTE VOLGORDE LOOPT MET ASYNCH? KAN IK DAT MET TIMESTAMP CONTROLEREN?
 function run_program() {
-  let plant_name = "";
   identify_plant();
   get_toxicity();
   change_html();
@@ -45,19 +49,96 @@ async function identify_plant() {
 async function get_toxicity() {
   // console.log("get toxicity function works");
   // TEST OF HET WERKT, LOS VAN DE VOLGORDE VAN FUNCTIES
-  plant_name = "Hypericum perforatum";
-  // TO DO: OPLETTEN DAT ER OOK WAT GETOOND WORDT BV VOOR "phalaenopsis orchidaceae" 
+  let plant_name = "Hypericum perforatum";
+  let plant_id = 144279;
+  // TO DO: OPLETTEN DAT ER OOK WAT GETOOND WORDT BV VOOR "phalaenopsis orchidaceae"
+  /*
   await fetch(
     // `https://trefle.io/api/plants?q=${plant_name}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api/`
     `https://trefle.io/api/species?q=${plant_name}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api`
   )
     .then(response => response.json())
     .then(data => {
-      // Here's a list of repos!
       console.log(data);
+      console.log(data[0]);
+      console.log(data[0].id);
+      plant_id = data[0].id;
+    });
+    */
+  await fetch(
+    // "https://trefle.io/api/plants/144279"
+    `https://trefle.io/api/plants/${plant_id}?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api`
+  )
+    .then(response => response.json())
+    .then(data => {
+      // console.log(data);
+      console.log(data.main_species.specifications);
+      console.log(data.main_species.specifications.toxicity);
+      plant_toxicity_original = data.main_species.specifications.toxicity;
     });
 }
 
 function change_html() {
   // console.log("change html function works");
+  console.log(plant_name);
+  console.log(plant_toxicity_original);
+  plant_toxicity_final = "";
+  // DE BOEL DEV MET ZIJN PARAGRAFEN NOG LEEG MAKEN
+  if ((plant_toxicity_original = "null")) {
+    // console.log("indeed null. need to catch this with some error message");
+    plant_toxicity_final = "not known";
+    console.log(plant_toxicity_final);
+  } else {
+    plant_toxicity_final = plant_toxicity_original;
+  }
+
+  // let result_p = document.createElement("p");
+  // let result_text = result_p.textContent = `The toxicity of ${plant_name} is ${plant_toxicity_final} </br>`;
+  // result = result_p.appendChild(result_text);
+  // document.getElementById("target").appendChild(result);
+
+  /*
+  let target = document.getElementById("target");
+  console.log(target.childNodes);
+  if ((target.childNodes = "")) {
+    console.log("nope, target doens't have text content");
+  } else {
+    console.log("yes indeed, target already has text content");
+  }
+  */
+
+  // let para = document.createElement("p");
+  // para.textContent = `The toxicity of ${plant_name} is ${plant_toxicity_final}`;
+  // target.replaceChild(para);
+  // console.log(target.textContent);
+
+  /* WILL BE COPYING THIS
+var sp1 = document.createElement("span");
+
+// Give it an id attribute called 'newSpan'
+sp1.id = "newSpan";
+
+// Create some content for the new element.
+var sp1_content = document.createTextNode("new replacement span element.");
+
+// Apply that content to the new element
+sp1.appendChild(sp1_content);
+
+// Build a reference to the existing node to be replaced
+var sp2 = document.getElementById("childSpan");
+var parentDiv = sp2.parentNode;
+
+// Replace existing node sp2 with the new span element sp1
+parentDiv.replaceChild(sp1, sp2);
+*/
+
+let target_p_populated = document.createElement("p");
+let target_p_populated.id = "target_p_populated";
+let target_p_populated_content = document.createTextNode(`The toxicity of ${plant_name} is ${plant_toxicity_final}`);
+target_p_populated.appendChild(target_p_populated_content);
+let target_p = document.getElementById("target_p");
+let target = target_p.parentNode;
+target.replaceChild(target_p_populated, target_p);
+// DEZE HIERONDER NODIG OM DE BOEL TE RESETTEN ZODAT TELKENS ALS JE OP DE KNOP DRUKT, DE PARAGRAAF WORDT VERVANGEN
+document.getElementById("target_p_populated").id = "target_p"
 }
