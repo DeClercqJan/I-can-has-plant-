@@ -20,8 +20,8 @@ function run_program() {
 async function identify_plant() {
   // console.log("identify plant function works");
   // TO DO: CHECKEN OF IMAGE URL ZONDER HTTPS OOK WERKT OF NIET; ZO NOPDIG AANPASSEN IN PLACEHOLDER
-  let image_url =
-    "https://res.cloudinary.com/bloomnation/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1496901561/vendor/731/catalog/product/2/0/20170607105718_file_593884ce493ab.jpg";
+  // let image_url = "https://res.cloudinary.com/bloomnation/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1496901561/vendor/731/catalog/product/2/0/20170607105718_file_593884ce493ab.jpg";
+  let image_url =document.getElementById("image_url").value 
   let organ = "leaf";
   await fetch(
     `https://my-api.plantnet.org/v2/identify/all?images=${image_url}&organs=${organ}&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe`
@@ -41,7 +41,9 @@ async function identify_plant() {
         data.results[0].species.genus.scientificNameWithoutAuthor;
       // console.log(family_scientificNameWithoutAuthor);
       // console.log(genus_scientificNameWithoutAuthor);
-      plant_name = `${genus_scientificNameWithoutAuthor} ${family_scientificNameWithoutAuthor}`;
+       // PROBLEMEN MET DE 2 NAMEN SAMEN
+      // plant_name = `${genus_scientificNameWithoutAuthor} ${family_scientificNameWithoutAuthor}`;
+      plant_name = genus_scientificNameWithoutAuthor;
       console.log(plant_name);
     });
 }
