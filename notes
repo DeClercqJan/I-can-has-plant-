@@ -43,6 +43,11 @@ https://my-api.plantnet.org/?api-key=2a10DxISupBCpFchETM9OpTIe#!/v2/getV2Identif
 GROTE VRAAG: KAN IK UPLOADSERVICE CREEEREN ZONDER PHP? VOORNU KAN IK BEGINNEN MET EEN ADRESBALK OFZO
 mss met een soort placeholder image met een bepaald pad
 
+TESTEN
+werkend voorbeeld: https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Yarrow_%28Achillea_millefolium%29.jpg/800px-Yarrow_%28Achillea_millefolium%29.jpg
+ZIT WEL NOG IETSTKE IN
+ERRORS VOOR https://ewscripps.brightspotcdn.com/dims4/default/b74f341/2147483647/strip/true/crop/1280x720+0+0/resize/1280x720!/quality/90/?url=https%3A%2F%2Fewscripps.brightspotcdn.com%2Fa2%2Fd6%2Ffe73fefd46259c6fc2994f78a8af%2Fpoison-oak.jpg
+https://www.worldatlas.com/r/w728-h425-c728x425/upload/9a/e7/c1/shutterstock-3434876.jpg (neemt precies object zonder dat main species erin zit ...  (voor https://www.naturescape.co.uk/wp-content/uploads/2017/06/CStjohnwort.jpg werkt het wel bv)
 
 eddyeddyeddyborremans@gmail.com test123 voor http://phylopic.org/api/a/
 

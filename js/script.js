@@ -6,29 +6,36 @@ document.getElementById("run").addEventListener("click", function() {
 });
 
 let plant_name = "plant_name (variable to be populated)";
+let plant_id = 1;
 // let plant_toxicity_original = "plant_toxicty (variable to be populated)";
 let plant_toxicity_original = "";
-console.log(plant_toxicity_original);
+// console.log(plant_toxicity_original);
+let plant_toxicity_final = "";
 
 // MOET IK NIET ZORGEN DAT DIT IN DE JUISTE VOLGORDE LOOPT MET ASYNCH? KAN IK DAT MET TIMESTAMP CONTROLEREN?
 function run_program() {
-  identify_plant();
-  get_toxicity();
-  change_html();
+  //identify_plant()
+  get_plant_name()
+    .then(get_plant_id)
+    .then(get_toxicity)
+    .then(change_html)
 }
 
-async function identify_plant() {
+// async function identify_plant() {
+  async function get_plant_name() {
   // console.log("identify plant function works");
   // TO DO: CHECKEN OF IMAGE URL ZONDER HTTPS OOK WERKT OF NIET; ZO NOPDIG AANPASSEN IN PLACEHOLDER
   // let image_url = "https://res.cloudinary.com/bloomnation/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1496901561/vendor/731/catalog/product/2/0/20170607105718_file_593884ce493ab.jpg";
-  let image_url =document.getElementById("image_url").value 
+  let image_url = document.getElementById("image_url").value;
+  console.log(image_url);
+  // TO DO: DEZE VAN ORGAN NOG AANPASSEN: EXTRA VELD OFZO OM IN TE GEVEN?
   let organ = "leaf";
-  await fetch(
+  return fetch(
     `https://my-api.plantnet.org/v2/identify/all?images=${image_url}&organs=${organ}&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe`
   )
     .then(response => response.json())
     .then(data => {
-      // console.log(data);
+      console.log(data);
       // console.log(data.results);
       // console.log(data.results[0]);
       // console.log(data.results[0].species);
@@ -41,39 +48,47 @@ async function identify_plant() {
         data.results[0].species.genus.scientificNameWithoutAuthor;
       // console.log(family_scientificNameWithoutAuthor);
       // console.log(genus_scientificNameWithoutAuthor);
-       // PROBLEMEN MET DE 2 NAMEN SAMEN
+      // PROBLEMEN MET DE 2 NAMEN SAMEN
       // plant_name = `${genus_scientificNameWithoutAuthor} ${family_scientificNameWithoutAuthor}`;
       plant_name = genus_scientificNameWithoutAuthor;
       console.log(plant_name);
     });
 }
 
-async function get_toxicity() {
-  // console.log("get toxicity function works");
-  // TEST OF HET WERKT, LOS VAN DE VOLGORDE VAN FUNCTIES
-  let plant_name = "Hypericum perforatum";
-  let plant_id = 144279;
+// DEZE NOG IN GET TOXICITY STEKEN?
+
+// async function get_toxicity() {
+// console.log("get toxicity function works");
+// TEST OF HET WERKT, LOS VAN DE VOLGORDE VAN FUNCTIES
+// let plant_name = "Hypericum perforatum";
+async function get_plant_id() {
+  // let plant_id = 144279;
   // TO DO: OPLETTEN DAT ER OOK WAT GETOOND WORDT BV VOOR "phalaenopsis orchidaceae"
-  /*
-  await fetch(
+  return fetch(
     // `https://trefle.io/api/plants?q=${plant_name}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api/`
     `https://trefle.io/api/species?q=${plant_name}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api`
   )
-    .then(response => response.json())
+  // .then(response => console.log(response));
+  
+  .then(response => response.json())
     .then(data => {
       console.log(data);
       console.log(data[0]);
       console.log(data[0].id);
       plant_id = data[0].id;
     });
-    */
-  await fetch(
+  
+}
+
+async function get_toxicity() {
+  // VRAAG!!! MOET IK NIET ANDERE DATABASE AANSPREKEN? NOG S TESTEN MET https://en.wikipedia.org/wiki/Achillea_millefolium#/media/File:Yarrow_(Achillea_millefolium).jpg
+  return fetch(
     // "https://trefle.io/api/plants/144279"
     `https://trefle.io/api/plants/${plant_id}?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api`
   )
     .then(response => response.json())
     .then(data => {
-      // console.log(data);
+      console.log(data);
       console.log(data.main_species.specifications);
       console.log(data.main_species.specifications.toxicity);
       plant_toxicity_original = data.main_species.specifications.toxicity;
@@ -82,9 +97,8 @@ async function get_toxicity() {
 
 function change_html() {
   // console.log("change html function works");
-  console.log(plant_name);
+  // console.log(plant_name);
   console.log(plant_toxicity_original);
-  plant_toxicity_final = "";
   // DE BOEL DEV MET ZIJN PARAGRAFEN NOG LEEG MAKEN
   if ((plant_toxicity_original = "null")) {
     // console.log("indeed null. need to catch this with some error message");
@@ -96,7 +110,9 @@ function change_html() {
 
   var target_p_populated = document.createElement("p");
   target_p_populated.id = "target_p_populated";
-  var target_p_populated_content = document.createTextNode(`The toxicity of ${plant_name} is ${plant_toxicity_final}`);
+  var target_p_populated_content = document.createTextNode(
+    `The toxicity of ${plant_name} is ${plant_toxicity_final}`
+  );
   target_p_populated.appendChild(target_p_populated_content);
   var target_p = document.getElementById("target_p");
   var target = target_p.parentNode;
@@ -143,5 +159,4 @@ var parentDiv = sp2.parentNode;
 // Replace existing node sp2 with the new span element sp1
 parentDiv.replaceChild(sp1, sp2);
 */
-
 }
