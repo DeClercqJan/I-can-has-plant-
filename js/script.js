@@ -26,8 +26,12 @@ async function get_plant_name() {
   // console.log("identify plant function works");
   // TO DO: CHECKEN OF IMAGE URL ZONDER HTTPS OOK WERKT OF NIET; ZO NOPDIG AANPASSEN IN PLACEHOLDER
   // let image_url = "https://res.cloudinary.com/bloomnation/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1496901561/vendor/731/catalog/product/2/0/20170607105718_file_593884ce493ab.jpg";
-  let image_url = document.getElementById("image_url").value;
-  console.log(image_url);
+  let image_url_original = document.getElementById("image_url").value;
+  console.log(image_url_original);
+  // let image_url_final = image_url_original.replace(/_/g, "%20");
+  // IS NODIG OM URL GOED TE KRIJGEN DAT SERVER HET KAN BEGRIJPEN
+  let image_url_final = encodeURI(image_url_original);
+  console.log(image_url_final);
   // TO DO: DEZE VAN ORGAN NOG AANPASSEN: EXTRA VELD OFZO OM IN TE GEVEN?
   // let organ = "leaf";
   //  let organ = document.getElementById("organ").elements["organ_choice"].value;
@@ -54,8 +58,9 @@ if (element.attributes[4]) {
  console.log(document.forms[0].elements["organ_choice"]);
  console.log(document.forms[0].elements["organ_choice"].value);
 let organ = document.forms[0].elements["organ_choice"].value;
+console.log(`https://my-api.plantnet.org/v2/identify/all?images=${image_url_final}&organs=${organ}&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe`);
   return fetch(
-    `https://my-api.plantnet.org/v2/identify/all?images=${image_url}&organs=${organ}&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe`
+      `https://my-api.plantnet.org/v2/identify/all?images=${image_url_final}&organs=${organ}&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe`
    // DEZE WERKT WEL "https://my-api.plantnet.org/v2/identify/all?images=http%3A%2F%2Fwww.southeasternflora.com%2Fimages%2Fmedium%2FCicuta%2520maculata%2520flower%25201.JPG&organs=flower&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe"
     )
     .then(response => response.json())
