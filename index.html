@@ -28,17 +28,31 @@
             <form action="" method="get" class="form-example">
                 <div class="form-example">
                     <label for="image_url">Enter the image URL</label>
-                    <input type="text" name="image_url_name" id="image_url" value="www.somesite.com/image.jpg" required>
+                    <input type="text" name="image_url_name" id="image_url"
+                        value="https://en.wikipedia.org/wiki/Achillea_millefolium#/media/File:Yarrow_(Achillea_millefolium).jpg"
+                        required>
                 </div>
                 <!-- <div class="form-example">
                     <input type="submit" id="submit" value="Find out!">
                 </div> -->
-                <div>
-                    <button type="button" id="run">Find out</button>
+                <p>Please check what part of the plant the photograph depicts</p>
+                <div id="organ">
+                    <input type="radio" id="organ_choice_flower" name="organ_choice" value="flower">
+                    <label for="organ_choice_flower">Flower</label>
+                    <input type="radio" id="organ_choice_fruit" name="organ_choice" value="fruit">
+                    <label for="organ_choice_fruit">Fruit</label>
+                    <input type="radio" id="organ_choice_leaf" name="organ_choice" value="leaf">
+                    <label for="organ_choice_leaf">Leaf</label>
+                    <input type="radio" id="organ_choice_bark" name="organ_choice" value="flower">
+                    <label for="organ_choice_bark">Bark</label>
                 </div>
+                <div>
+                    <div>
+                        <button type="button" id="run">Find out</button>
+                    </div>
             </form>
             <div id="target">
-                    <p id="target_p">The result of your query will be displayed here</p>
+                <p id="target_p">The result of your query will be displayed here</p>
             </div>
         </article>
     </main>

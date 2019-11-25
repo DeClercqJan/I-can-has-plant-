@@ -18,21 +18,46 @@ function run_program() {
   get_plant_name()
     .then(get_plant_id)
     .then(get_toxicity)
-    .then(change_html)
+    .then(change_html);
 }
 
 // async function identify_plant() {
-  async function get_plant_name() {
+async function get_plant_name() {
   // console.log("identify plant function works");
   // TO DO: CHECKEN OF IMAGE URL ZONDER HTTPS OOK WERKT OF NIET; ZO NOPDIG AANPASSEN IN PLACEHOLDER
   // let image_url = "https://res.cloudinary.com/bloomnation/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1496901561/vendor/731/catalog/product/2/0/20170607105718_file_593884ce493ab.jpg";
   let image_url = document.getElementById("image_url").value;
   console.log(image_url);
   // TO DO: DEZE VAN ORGAN NOG AANPASSEN: EXTRA VELD OFZO OM IN TE GEVEN?
-  let organ = "leaf";
+  // let organ = "leaf";
+  //  let organ = document.getElementById("organ").elements["organ_choice"].value;
+  // let organ = document.querySelector("input[type=radio]:checked").val();
+  /*
+  let organ_nodelist = document.getElementsByName("organ_choice");
+  console.log(organ_nodelist);
+  console.log(typeof organ_nodelist);
+  organ_array = Array.from(organ_nodelist);
+  console.log(organ_array);
+  organ_array.forEach(element => {
+    console.log(element);
+    console.log(element.attributes);
+    console.log(element.attributes[4]);
+if (element.attributes[4]) {
+  console.log("checked");
+  organ = element.attributes[3].value;
+  console.log(organ);
+}
+  });
+  */
+ console.log(document.forms);
+ console.log(document.forms[0]);
+ console.log(document.forms[0].elements["organ_choice"]);
+ console.log(document.forms[0].elements["organ_choice"].value);
+let organ = document.forms[0].elements["organ_choice"].value;
   return fetch(
     `https://my-api.plantnet.org/v2/identify/all?images=${image_url}&organs=${organ}&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe`
-  )
+   // DEZE WERKT WEL "https://my-api.plantnet.org/v2/identify/all?images=http%3A%2F%2Fwww.southeasternflora.com%2Fimages%2Fmedium%2FCicuta%2520maculata%2520flower%25201.JPG&organs=flower&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe"
+    )
     .then(response => response.json())
     .then(data => {
       console.log(data);
@@ -64,20 +89,21 @@ function run_program() {
 async function get_plant_id() {
   // let plant_id = 144279;
   // TO DO: OPLETTEN DAT ER OOK WAT GETOOND WORDT BV VOOR "phalaenopsis orchidaceae"
-  return fetch(
-    // `https://trefle.io/api/plants?q=${plant_name}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api/`
-    `https://trefle.io/api/species?q=${plant_name}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api`
-  )
-  // .then(response => console.log(response));
-  
-  .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      console.log(data[0]);
-      console.log(data[0].id);
-      plant_id = data[0].id;
-    });
-  
+  return (
+    fetch(
+      // `https://trefle.io/api/plants?q=${plant_name}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api/`
+      `https://trefle.io/api/species?q=${plant_name}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api`
+    )
+      // .then(response => console.log(response));
+
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        console.log(data[0]);
+        console.log(data[0].id);
+        plant_id = data[0].id;
+      })
+  );
 }
 
 async function get_toxicity() {
@@ -100,7 +126,7 @@ function change_html() {
   // console.log(plant_name);
   // console.log(plant_toxicity_original);
   // DE BOEL DEV MET ZIJN PARAGRAFEN NOG LEEG MAKEN
-  if ((plant_toxicity_original == "null")) {
+  if (plant_toxicity_original == "null") {
     // console.log("indeed null. need to catch this with some error message");
     plant_toxicity_final = "not known";
     console.log(plant_toxicity_final);

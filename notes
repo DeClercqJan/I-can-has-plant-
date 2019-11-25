@@ -26,7 +26,8 @@ platable is ook interessant: eetbaar of niet
 PROBLEEM: GEEN CHEMISCHE STOFFEN in
 - verder zoeken: IDEE: CAN I EAT PLANT?
 https://web.plant.id/plant-identification-api/
-https://plant.id/identification/l1EDGYDVh4x0F41 (werkt precies, mail gesturud voor
+https://plant.id/id
+entification/l1EDGYDVh4x0F41 (werkt precies, mail gesturud voor
 
 https://www.plant-image-analysis.org/api (doet niet veel, maar de aps die erop zijn gebasseerd wle
 https://identify.plantnet.org/query/the-plant-list/?view=results
@@ -65,7 +66,7 @@ https://open.fda.gov/
 https://fdc.nal.usda.gov/
 
 http://strains.evanbusse.com/
-
+	
 
 https://trefle.io/    key: cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09
 PROBLEM: CORS header ‘Access-Control-Allow-Origin’ missing)
@@ -94,18 +95,19 @@ As of Firefox 68, https pages are not permitted to access http://localhost, alth
 
 
 
-
-andere API testen? andere info gebruiken?
-
-leek me interessant om missing values te vinden https://open.fda.gov/apis/missing-values/
+leek me interessant om missing values te vinden https://open.fda.gov/apis/missing-values/ 
+of is dat API-afhankelijk?
 
 ook interessant: is er geen *-achtig iets voor dei json zodat ik alles kan vinden dat er iets van heeft
 
-NU MEE BEZIG: HOE KAN IK INFO VAN TOXICITY PER DING SELECTEREN; MOET IK MSS 2 REQUESTS DOEN; DE EERSTE OM TE DE ID TE VINDEN EN DE TWEEDE OM DE JUISTE MET PLANT ID_NUMBER TE OPENEN?
-// TO DO: CHECKEN OF IMAGE URL ZONDER HTTPS OOK WERKT OF NIET; ZO NOPDIG AANPASSEN IN PLACEHOLDER
+
   // TO DO: OPLETTEN DAT ER OOK WAT GETOOND WORDT BV VOOR "phalaenopsis orchidaceae" 
 // EVENTUEEL OOK FIELD VOOR "ORGAN" AANMAKEN
+Hoe kan ik selectie van organ required maken? Ik heb al eens required op alles gezet en de boel wordt niet tegengehouden
+of ligt dat mss aan mijn manier van de input verzenden?	4
 
+na pauze: stap voor checken of request die mijn programma maakt, correct is (krijg unautheroized error
+https://my-api.plantnet.org/v2/identify/all?images=http%3A%2F%2Fwww.southeasternflora.com%2Fimages%2Fmedium%2FCicuta%2520maculata%2520flower%25201.JPG&organs=flower&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe"
 
 
 
