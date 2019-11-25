@@ -3,6 +3,12 @@ https://declercqjan.github.io/Startup-with-open-api/
 
 meer een app maken dan een websitee
 
+
+ideetjes
+- planten-api:
+- chemische stoffen/werkzame medicatie
+PROBLEEM: GEEN CHEMISCHE STOFFEN in - verder zoeken: IDEE: CAN I EAT PLANT?
+
 vb met sint janskruid ( Hypericum perforatum
 logica:
 1 invoer van naam. (mogelijk meerdere ,idealiter, verdere spcieficicering)
@@ -11,9 +17,7 @@ dan moet er gecheckt worden of die naam bestaat
 dan moet de id gepakt worden
 144279
 
-
-ideetjes
-- planten-api: eerst treflio.io geprobeerd, maar bevat geen toxicity-info. USDA (via plantsdb, nochtans de bron voor trefle, bevat het wel
+ eerst treflio.io geprobeerd, maar bevat geen toxicity-info. USDA (via plantsdb, nochtans de bron voor trefle, bevat het wel
 https://plantsdb.xyz/search?limit=1000&toxicity=Slight&fields=Genus,Species,AcceptedSymbol,Toxicity
 slight
 moderate
@@ -21,10 +25,9 @@ none
 "" (null"
 severe
 https://plants.usda.gov/charinfo.html
-platable is ook interessant: eetbaar of niet
-- chemische stoffen/werkzame medicatie
-PROBLEEM: GEEN CHEMISCHE STOFFEN in
-- verder zoeken: IDEE: CAN I EAT PLANT?
+
+platable is ook interessant: eetbaar of nie
+
 https://web.plant.id/plant-identification-api/
 https://plant.id/id
 entification/l1EDGYDVh4x0F41 (werkt precies, mail gesturud voor
@@ -41,8 +44,36 @@ https://my-api.plantnet.org/?api-key=2a10DxISupBCpFchETM9OpTIe
 -> MORGEN TE BEKIJKEN https://github.com/plantnet/my.plantnet/blob/master/examples/post/run.js
 https://my-api.plantnet.org/?api-key=2a10DxISupBCpFchETM9OpTIe#!/v2/getV2IdentifyProject (je kan het testen op die pagina, 
 
+	
 GROTE VRAAG: KAN IK UPLOADSERVICE CREEEREN ZONDER PHP? VOORNU KAN IK BEGINNEN MET EEN ADRESBALK OFZO
 mss met een soort placeholder image met een bepaald pad
+
+
+TO DO: BEETJE STYLING, MSS MET BOOTSTRAP OFZO
+
+
+// TO DO: OPLETTEN DAT ER OOK WAT GETOOND WORDT BV VOOR "phalaenopsis orchidaceae" 
+
+probleem is bij de queries die enkele algemen species teruggeven
+
+toxicodendron = genus
+dan krijg je gegevens, maar niet de juiste. toxicity zit er niet in
+https://trefle.io/api/species?q=toxicodendron&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api
+https://trefle.io/api/genuses/2069?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api
+(doorgaan op main species id) https://trefle.io/api/plants/206489?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-ap
+
+
+ideetje: opsplitsen en in variabelen steken
+then get_plant_id_genus
+.then get_plant_id_full
+
+bij plant-name full: TypeError: data[0] is undefined (soms geen info) edit: eens proberen met if en else om te zien of het bestaat. Nee, lukt niet. eens proberen met element in variabele steken en het er dan uit te halen EDIT: nog eens zien of ik het nu niet opgelelost heb
+
+ik zou eigenlijk een soort if en else en meerdere fetches en promises moeten kunnen mixen en matchen ...?
+
+nog een manier is om nog eens goed te kijken naar de beschikbare data.: ik moet iets selecteren in de planetnet api die dan bruikbaar is voor de tweede
+=>TE TESTEN mogelijk is het gewoon dit: scientific name without author selecteren
+
 
 TESTEN
 werkend voorbeeld: https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Yarrow_%28Achillea_millefolium%29.jpg/800px-Yarrow_%28Achillea_millefolium%29.jpg
@@ -54,19 +85,14 @@ eddyeddyeddyborremans@gmail.com test123 voor http://phylopic.org/api/a/
 
 
 
-https://www.gbif.org/developer/occurrence
-https://www.gbif.org/species/3189486
+Hoe kan ik selectie van organ required maken? Ik heb al eens required op alles gezet en de boel wordt niet tegengehouden
+of ligt dat mss aan mijn manier van de input verzenden?	4
+
+na pauze: stap voor checken of request die mijn programma maakt, correct is (krijg unautheroized error
+https://my-api.plantnet.org/v2/identify/all?images=http%3A%2F%2Fwww.southeasternflora.com%2Fimages%2Fmedium%2FCicuta%2520maculata%2520flower%25201.JPG&organs=flower&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe"
+HEB DAT MET ENCODE URI GEDAAN
 
 
-https://docs.lexigram.io/v1/welcome/getting-started
-https://developers.teleport.org/api/
-https://developer.nutritionix.com/
-
-https://open.fda.gov/
-https://fdc.nal.usda.gov/
-
-http://strains.evanbusse.com/
-	
 
 https://trefle.io/    key: cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09
 PROBLEM: CORS header ‘Access-Control-Allow-Origin’ missing)
@@ -77,6 +103,8 @@ VEEL GEPROBEERD IN EXAMPLE
 NA DE LUNCHPAUZE EENS PROBEREN SITE ONLINE TE ZETTEN
 -> eens https://postwoman.io/ checken om te zien hoe zaken 
 EDIT: GEVONDEN: https://css-tricks.com/using-fetch/ kon goede response krijgen, maar dan moest het nog naar json worden omgezet
+
+die no cors plugin van firefox doet geluijk ook wel wat
 
 VER TE BEKIJKE NVOOR PROBLEEM VAN GEEN ACCES:
 
@@ -94,20 +122,23 @@ firefox bug?? https://bugzilla.mozilla.org/show_bug.cgi?id=700837
 As of Firefox 68, https pages are not permitted to access http://localhost, although this may be changed by Bug 1488740. https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSDidNotSucceed
 
 
-
 leek me interessant om missing values te vinden https://open.fda.gov/apis/missing-values/ 
 of is dat API-afhankelijk?
 
 ook interessant: is er geen *-achtig iets voor dei json zodat ik alles kan vinden dat er iets van heeft
 
 
-  // TO DO: OPLETTEN DAT ER OOK WAT GETOOND WORDT BV VOOR "phalaenopsis orchidaceae" 
-// EVENTUEEL OOK FIELD VOOR "ORGAN" AANMAKEN
-Hoe kan ik selectie van organ required maken? Ik heb al eens required op alles gezet en de boel wordt niet tegengehouden
-of ligt dat mss aan mijn manier van de input verzenden?	4
+ANDERE APIS
 
-na pauze: stap voor checken of request die mijn programma maakt, correct is (krijg unautheroized error
-https://my-api.plantnet.org/v2/identify/all?images=http%3A%2F%2Fwww.southeasternflora.com%2Fimages%2Fmedium%2FCicuta%2520maculata%2520flower%25201.JPG&organs=flower&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe"
 
+https://www.gbif.org/developer/occurrence
+https://www.gbif.org/species/3189486
+https://docs.lexigram.io/v1/welcome/getting-started
+https://developers.teleport.org/api/
+https://developer.nutritionix.com/
+https://open.fda.gov/
+https://fdc.nal.usda.gov/
+
+http://strains.evanbusse.com/
 
 
