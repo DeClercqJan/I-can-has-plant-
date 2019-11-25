@@ -169,4 +169,6 @@ function change_html() {
 
   // DEZE RESETTEN OPDAT TELKENS ALS JE KLIKT OP DE KNOP DE PARAGRAAF VERVANGEN WORDT IN PLAATS VAN DAT ER EEN EXTRA PARAGRAAF GECREEERD WORDT
   target_div.id = "target";
+  // DEZE OM OOK WAT CSS BOOTSTRAP TE HEBBEN
+  target_div.className = "col-12 col-md-6 offset-md-3";
 }
