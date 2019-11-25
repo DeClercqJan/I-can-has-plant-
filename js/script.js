@@ -98,14 +98,15 @@ async function get_toxicity() {
 function change_html() {
   // console.log("change html function works");
   // console.log(plant_name);
-  console.log(plant_toxicity_original);
+  // console.log(plant_toxicity_original);
   // DE BOEL DEV MET ZIJN PARAGRAFEN NOG LEEG MAKEN
-  if ((plant_toxicity_original = "null")) {
+  if ((plant_toxicity_original == "null")) {
     // console.log("indeed null. need to catch this with some error message");
     plant_toxicity_final = "not known";
     console.log(plant_toxicity_final);
   } else {
     plant_toxicity_final = plant_toxicity_original;
+    console.log(plant_toxicity_final);
   }
 
   var target_p_populated = document.createElement("p");
