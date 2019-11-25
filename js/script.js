@@ -237,17 +237,33 @@ function change_html() {
     console.log(plant_toxicity_original);
   }
 
-  var target_p_populated = document.createElement("p");
-  target_p_populated.id = "target_p_populated";
-  var target_p_populated_content = document.createTextNode(
-    `The toxicity of ${plant_name} is ${plant_toxicity_final} AND The edibility of ${plant_name} is ${plant_edibility_final}`
+
+  
+    var target_populated_toxicity = document.createElement("p");
+  target_populated_toxicity.id = "target_populated_toxicity";
+  var target_populated_toxicity_content = document.createTextNode(
+    `The toxicity of ${plant_name} is ${plant_toxicity_final}`
   );
-  target_p_populated.appendChild(target_p_populated_content);
-  var target_p = document.getElementById("target_p");
-  var target = target_p.parentNode;
-  target.replaceChild(target_p_populated, target_p);
+  target_populated_toxicity.appendChild(target_populated_toxicity_content);
+  
+  var target_populated_edibility = document.createElement("p");
+  target_populated_edibility.id = "target_populated_edibility";
+  var target_populated_edibility_content = document.createTextNode(
+    `The edibility of ${plant_name} is ${plant_edibility_final}`
+  );
+  target_populated_edibility.appendChild(target_populated_edibility_content);
+
+  var target_div = document.createElement("div");
+target_div.appendChild(target_populated_toxicity);
+target_div.appendChild(target_populated_edibility);
+
+  var target = document.getElementById("target");
+  var target_parent = target.parentNode;
+  target_parent.replaceChild(target_div, target);
+  
   // DEZE RESETTEN OPDAT TELKENS ALS JE KLIKT OP DE KNOP DE PARAGRAAF VERVANGEN WORDT IN PLAATS VAN DAT ER EEN EXTRA PARAGRAAF GECREEERD WORDT
-  target_p_populated.id = "target_p";
+  target_div.id = "target";
+
 
   // let result_p = document.createElement("p");
   // let result_text = result_p.textContent = `The toxicity of ${plant_name} is ${plant_toxicity_final} </br>`;
