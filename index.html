@@ -21,27 +21,31 @@
             <div class="row">
                 <h2 class="col-12 col-md-12 text-center">Find out if you can eat a plant</h2>
             </div>
-            <div class="row">
-                <ol class="col-12 offset-md-1 col-md-4">
+            <div class="row text-center ">
+                <ol class="col-12 offset-md-1 col-md-4" id="past-events-parallal-1-collapse">
                     <li>take a picture of the plant</li>
                     <li>upload it somewhere (Dropbox, Flickr ... TO DO: ADD LINK)</li>
                     <li>get the URL of where the image is stored</li>
                     <li>paste the URL in the input field below</li>
                     <li>press the button</li>
                 </ol>
+                <div class="col-6 offset-3 ">
+                    <button type="button" class="btn btn-info text-center" data-toggle="collapse"
+                        data-target="#past-events-parallal-1-collapse" aria-expanded="true"
+                        id="instructions_button">Instructions</button>
+                </div>
                 <form class="col-12 offset-md-1 col-md-4 text-center" action="" method="get" class="form-example">
                     <div class="form-example">
                         <label for="image_url">Enter the image URL</label>
                         <input type="text" name="image_url_name" id="image_url"
-                            value="https://images-na.ssl-images-amazon.com/images/I/51nmQrv6zhL._SX425_.jpg"
-                            required>
+                            value="https://images-na.ssl-images-amazon.com/images/I/51nmQrv6zhL._SX425_.jpg" required>
                     </div>
                     <!-- <div class="form-example">
                     <input type="submit" id="submit" value="Find out!">
                 </div> -->
                     <p>Please check what part of the plant the photograph depicts</p>
                     <div id="organ">
-                        <input type="radio" id="organ_choice_flower" name="organ_choice" value="flower">
+                        <input type="radio" id="organ_choice_flower" name="organ_choice" value="flower" checked>
                         <label for="organ_choice_flower">Flower</label>
                         <input type="radio" id="organ_choice_fruit" name="organ_choice" value="fruit">
                         <label for="organ_choice_fruit">Fruit</label>
@@ -50,8 +54,8 @@
                         <input type="radio" id="organ_choice_bark" name="organ_choice" value="flower">
                         <label for="organ_choice_bark">Bark</label>
                     </div>
-                    <div>
-                        <button type="button" id="run">Find out</button>
+                    <div class="col-6 offset-3">
+                        <button type="button" id="run" class="btn btn-info">Find out</button>
                     </div>
                 </form>
             </div>
@@ -66,6 +70,18 @@
         <p class="col-12 text-center">FOOTER TO DO</p>
     </footer>
     <script src="js/script.js"></script>
+    <!-- mogelijk niet alles van nodig; gekopieerd van The subs project-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/45e55d5c3d.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

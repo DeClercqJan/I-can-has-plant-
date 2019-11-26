@@ -3,11 +3,9 @@
 }
 
 html {
-  color: blue;
   height: 100%;
   min-height: 100%;
 }
-
 
 body {
   height: 100%;
@@ -29,6 +27,22 @@ footer {
   min-height: 10%;
 }
 
+#past-events-parallal-1-collapse {
+  display: inline;
+}
+#instructions_button {
+  display: none;
+}
+
 /* break-off point */
-@@media (min-width: 768px) {
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px !important; /* nodig om goed weer te geven op mobiel; text overflow */
+  }
+  #past-events-parallal-1-collapse {
+    display: none;
+  }
+  #instructions_button {
+    display: inline;
+  }
 }
