@@ -86,7 +86,7 @@ then get_plant_id_genus
 
 bij plant-name full: TypeError: data[0] is undefined (soms geen info) edit: eens proberen met if en else om te zien of het bestaat. Nee, lukt niet. eens proberen met element in variabele steken en het er dan uit te halen EDIT: nog eens zien of ik het nu niet opgelelost heb
 edit: heb nu wat if en else in de verschillende functies gezet en error messages in log en ook htmlom de boel op te vangen
-TO DO: eens zien of ik niet met if en else het nog kan verbeteren dat het bv. met genus kan worden opgezocht
+->TO DO: eens zien of ik niet met if en else het nog kan verbeteren dat het bv. met genus kan worden opgezocht
 
 ik zou eigenlijk een soort if en else en meerdere fetches en promises moeten kunnen mixen en matchen ...?
 

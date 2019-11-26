@@ -21,19 +21,27 @@
             <div class="row">
                 <h2 class="col-12 col-md-12 text-center">Find out if you can eat a plant</h2>
             </div>
-            <div class="row text-center ">
-                <ol class="col-12 offset-md-1 col-md-4" id="past-events-parallal-1-collapse">
+            <div class="row">
+                <!-- <div class="row text-center "> -->
+                <ol class="col-12 offset-md-1 col-md-4 collapse" id="collapseExample">
+                    <!-- <ol class="col-12 offset-md-1 col-md-4 collapse show" id="past-events-parallal-1-collapse"> -->
                     <li>take a picture of the plant</li>
                     <li>upload it somewhere (Dropbox, Flickr ... TO DO: ADD LINK)</li>
                     <li>get the URL of where the image is stored</li>
                     <li>paste the URL in the input field below</li>
                     <li>press the button</li>
                 </ol>
-                <div class="col-6 offset-3 ">
-                    <button type="button" class="btn btn-info text-center" data-toggle="collapse"
-                        data-target="#past-events-parallal-1-collapse" aria-expanded="true"
-                        id="instructions_button">Instructions</button>
+                <div class="col-6 offset-3 text-center">
+                    <button class="btn btn-info w-100" type="button" data-toggle="collapse" data-target="#collapseExample"
+                        aria-expanded="false" aria-controls="collapseExample" id="collapse_button">
+                        Instructions
+                    </button>
                 </div>
+                <!-- <div class="col-6 offset-3 col-md-0">
+                     <button type="button" class="btn btn-info text-center" data-toggle="collapse"
+                        data-target="#past-events-parallal-1-collapse" aria-expanded="true"
+                        id="instructions_button">Instructions</button> 
+                </div> -->
                 <form class="col-12 offset-md-1 col-md-4 text-center" action="" method="get" class="form-example">
                     <div class="form-example">
                         <label for="image_url">Enter the image URL</label>
@@ -55,7 +63,7 @@
                         <label for="organ_choice_bark">Bark</label>
                     </div>
                     <div class="col-6 offset-3">
-                        <button type="button" id="run" class="btn btn-info">Find out</button>
+                        <button type="button" id="run" class="btn btn-info w-100">Find out</button>
                     </div>
                 </form>
             </div>
