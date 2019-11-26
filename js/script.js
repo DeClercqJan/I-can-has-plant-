@@ -15,8 +15,8 @@ function run_program() {
   // get_plant_name()
   // get_plant_name_genus()
   get_plant_name_full()
-    .then(get_plant_id_data)
     // get_plant_id_data()
+    .then(get_plant_id_data)
     // .then(get_plant_id)
     .then(get_toxicity)
     .then(change_html);
@@ -68,15 +68,15 @@ async function get_plant_name_full() {
     .then(response => response.json())
     .then(data => {
       console.log(data);
-      family_scientificNameWithoutAuthor =
-        data.results[0].species.family.scientificNameWithoutAuthor;
+      //family_scientificNameWithoutAuthor = data.results[0].species.family.scientificNameWithoutAuthor;
       genus_scientificNameWithoutAuthor =
         data.results[0].species.genus.scientificNameWithoutAuthor;
       // ENKEL GENUS
       plant_name_genus = genus_scientificNameWithoutAuthor;
       console.log(plant_name_genus);
       // PROBLEMEN MET DE 2 NAMEN SAMEN
-      plant_name_full = `${genus_scientificNameWithoutAuthor} ${family_scientificNameWithoutAuthor}`;
+      // plant_name_full = `${genus_scientificNameWithoutAuthor} ${family_scientificNameWithoutAuthor}`;
+      plant_name_full = data.results[0].species.scientificNameWithoutAuthor;
       console.log(plant_name_full);
       plant_score_original = data.results[0].score;
       console.log(plant_score_original);
@@ -93,9 +93,11 @@ async function get_plant_id_data() {
   // console.log(
   // `${plant_name_genus} is handmatig gezet om verder te kunnen werken na de 5à max limiet van planetnet`
   // );
+  // plant_name_full = "Achillea millefolium"
   return fetch(
     // `https://trefle.io/api/plants?q=${plant_name}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api/`
-    `https://trefle.io/api/species?q=${plant_name_genus}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api`
+    // `https://trefle.io/api/species?q=${plant_name_full}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api`
+    `https://trefle.io/api/species?scientific_name=${plant_name_full}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api`
   )
     .then(response => response.json())
     .then(data => {
@@ -117,7 +119,7 @@ async function get_toxicity() {
       console.log(data);
       data_toxicity = data;
       // VERSCHILLENDE RESPONSES OPVANGEN VOOR BV. https://trefle.io/api/plants/188525?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09& VERSUS https://trefle.io/api/plants/144279?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&
-      if (data_toxicity.specifications == null) {
+      if (data_toxicity.main_species.specifications == null) {
         console.log("specifications is null");
         plant_toxicity_original = null;
         plant_edibility_original = null;
@@ -126,8 +128,8 @@ async function get_toxicity() {
         console.log(data.main_species.specifications.toxicity);
         plant_toxicity_original = data.main_species.specifications.toxicity;
         console.log(data.main_species.products);
-        console.log(data_main_species.products.palatable_human);
-        plant_edibility_original = data_main_species.products.palatable_human;
+        console.log(data.main_species.products.palatable_human);
+        plant_edibility_original = data.main_species.products.palatable_human;
       }
     });
 }
@@ -135,7 +137,7 @@ async function get_toxicity() {
 function change_html() {
   // VERTALEN VAN DATABASE NAAR TEKST
   console.log(plant_score_original);
-  plant_score_final = parseFloat(plant_score_original*100).toFixed(2)+"%";
+  plant_score_final = parseFloat(plant_score_original * 100).toFixed(2) + "%";
   console.log(plant_score_final);
   if (plant_toxicity_original === null) {
     console.log(
@@ -183,7 +185,6 @@ function change_html() {
   target_div.appendChild(target_populated_score);
   target_div.appendChild(target_populated_toxicity);
   target_div.appendChild(target_populated_edibility);
-  
 
   var target = document.getElementById("target");
   var target_parent = target.parentNode;
