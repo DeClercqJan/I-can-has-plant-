@@ -34,4 +34,7 @@ footer {
   #collapse_button {
     display: none;
   }
+  #collapse_div {
+    display: none;
+  }
 }
