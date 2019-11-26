@@ -62,7 +62,10 @@ icoontjes voor toxicit: slight, moderate, severe (groen, oranje rood/ doodshoofd
 opties voor flower, leaf,  bark, fruit icoontjes (github
 https://iconscout.com/github-students
 
+nu werk ik met toggle collapse (jquery bootstrap) en javascript (eigen) om plaats te maken voor de respons in het geval de isntructies teveel plek innemen	
+-> kijken of ik niet gewoon alles met javascript kan doen, bv. door bootstrap toggle te vervangen met javascript-toggle: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_style_display_toggle + dan in tweede klik een if/else-fucntie te schrijven met als het open is, sluit het. 
 
+nog een manier is om nog eens goed te kijken naar de beschikbare data.: ik moet iets selecteren in de planetnet api die dan bruikbaar is voor de tweede
 // TO DO: OPLETTEN DAT ER OOK WAT GETOOND WORDT BV VOOR "Phalaenopsis Orchidaceae" 
 https://cdn.britannica.com/45/123445-050-37A360E8/Moth-orchid.jpg identificeert wel genus enzo, maar de speciesnaam is niet van de poes
 scientificNameWithoutAuthor = Phalaenopsis spp
@@ -90,8 +93,7 @@ edit: heb nu wat if en else in de verschillende functies gezet en error messages
 
 ik zou eigenlijk een soort if en else en meerdere fetches en promises moeten kunnen mixen en matchen ...?
 
-nog een manier is om nog eens goed te kijken naar de beschikbare data.: ik moet iets selecteren in de planetnet api die dan bruikbaar is voor de tweede
-=>TE TESTEN mogelijk is het gewoon dit: scientific name without author selecteren
+
 
 
 TESTEN

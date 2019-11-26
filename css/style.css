@@ -27,29 +27,6 @@ footer {
   min-height: 10%;
 }
 
-/*
-#past-events-parallal-1-collapse {
-  display: block;
-}
-#instructions_button {
-  display: none;
-}
-*/
-
-/* break-off point */
-@media screen and (max-width: 768px) {
-  html {
-    font-size: 14px !important; /* nodig om goed weer te geven op mobiel; text overflow */
-  }
-  /*
-  #past-events-parallal-1-collapse {
-    display: none;
-  }
-  #instructions_button {
-    display: inline-block;
-  }
-  */
-}
 @media screen and (min-width: 768px) {
   #collapseExample {
     display: block;
