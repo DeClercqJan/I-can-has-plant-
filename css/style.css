@@ -28,6 +28,7 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
+  /*
   #collapseExample {
     display: block;
   }
@@ -35,6 +36,10 @@ footer {
     display: none;
   }
   #collapse_div {
+    display: none;
+  }
+  */
+  #instructions_button_div {
     display: none;
   }
 }

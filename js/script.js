@@ -1,6 +1,13 @@
+console.log( document.getElementById("instructions").style.display);
+console.log(typeof document.getElementById("instructions").style.display);
 
-document.getElementById("run").addEventListener("click", function() {
-    document.getElementById("collapseExample").style.display = "none";
+document.getElementById("run").addEventListener("click", function() { 
+  if(document.getElementById("instructions").style.display == "") {
+    document.getElementById("instructions").style.display = "block";
+  }
+  else{
+    document.getElementById("instructions").style.display = "none";
+  }
   run_program();
 });
 
