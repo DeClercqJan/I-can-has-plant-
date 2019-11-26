@@ -6,21 +6,24 @@ let plant_name = "plant_name (variable to be populated)";
 let plant_id = 1;
 let plant_toxicity_original = "";
 let plant_toxicity_final = "";
+let plant_score_original = 1;
+let plant_score_final = 1;
 
 // MOET IK NIET ZORGEN DAT DIT IN DE JUISTE VOLGORDE LOOPT MET ASYNCH? KAN IK DAT MET TIMESTAMP CONTROLEREN?
 function run_program() {
   //identify_plant()
   // get_plant_name()
-  //get_plant_name_genus()
-  //.then(get_plant_name_full)
-  // .then(get_plant_id_data)
-  get_plant_id_data()
+  // get_plant_name_genus()
+  get_plant_name_full()
+    .then(get_plant_id_data)
+    // get_plant_id_data()
     // .then(get_plant_id)
     .then(get_toxicity)
     .then(change_html);
 }
 
 // async function identify_plant() {
+/*
 async function get_plant_name_genus() {
   let image_url_original = document.getElementById("image_url").value;
   console.log(image_url_original);
@@ -39,10 +42,13 @@ async function get_plant_name_genus() {
     .then(data => {
       console.log(data);
       // HIER ENKEL DE GENUS
+      genus_scientificNameWithoutAuthor =
+        data.results[0].species.genus.scientificNameWithoutAuthor;
       plant_name_genus = genus_scientificNameWithoutAuthor;
       console.log(plant_name_genus);
     });
 }
+*/
 
 async function get_plant_name_full() {
   // let image_url = "https://res.cloudinary.com/bloomnation/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1496901561/vendor/731/catalog/product/2/0/20170607105718_file_593884ce493ab.jpg";
@@ -66,9 +72,15 @@ async function get_plant_name_full() {
         data.results[0].species.family.scientificNameWithoutAuthor;
       genus_scientificNameWithoutAuthor =
         data.results[0].species.genus.scientificNameWithoutAuthor;
+      // ENKEL GENUS
+      plant_name_genus = genus_scientificNameWithoutAuthor;
+      console.log(plant_name_genus);
       // PROBLEMEN MET DE 2 NAMEN SAMEN
       plant_name_full = `${genus_scientificNameWithoutAuthor} ${family_scientificNameWithoutAuthor}`;
       console.log(plant_name_full);
+      plant_score_original = data.results[0].score;
+      console.log(plant_score_original);
+      console.log(typeof plant_score_original);
     });
 }
 
@@ -77,24 +89,22 @@ async function get_plant_name_full() {
 async function get_plant_id_data() {
   // plant_name_full ="toxicodendron radicans"
   // console.log(`${plant_name_full} is handmatig gezet om verder te kunnen werken na de 5à max limiet van planetnet`)
-  plant_name_genus = "millefolium";
-  console.log(
-    `${plant_name_genus} is handmatig gezet om verder te kunnen werken na de 5à max limiet van planetnet`
-  );
-  return (
-    fetch(
-      // `https://trefle.io/api/plants?q=${plant_name}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api/`
-      `https://trefle.io/api/species?q=${plant_name_genus}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api`
-    )
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        plant_id_data = data;
-        console.log(data[0]);
-        console.log(data[0].id);
-        plant_id = data[0].id;
-      })
-  );
+  // plant_name_genus = "millefolium";
+  // console.log(
+  // `${plant_name_genus} is handmatig gezet om verder te kunnen werken na de 5à max limiet van planetnet`
+  // );
+  return fetch(
+    // `https://trefle.io/api/plants?q=${plant_name}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api/`
+    `https://trefle.io/api/species?q=${plant_name_genus}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api`
+  )
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      plant_id_data = data;
+      console.log(data[0]);
+      console.log(data[0].id);
+      plant_id = data[0].id;
+    });
 }
 
 async function get_toxicity() {
@@ -124,6 +134,9 @@ async function get_toxicity() {
 
 function change_html() {
   // VERTALEN VAN DATABASE NAAR TEKST
+  console.log(plant_score_original);
+  plant_score_final = parseFloat(plant_score_original*100).toFixed(2)+"%";
+  console.log(plant_score_final);
   if (plant_toxicity_original === null) {
     console.log(
       "indeed toxicity is null. need to catch this with some error message"
@@ -144,24 +157,33 @@ function change_html() {
     plant_edibility_final = plant_edibility_original;
     console.log(plant_toxicity_original);
   }
-// VERVANGT DE DIV TARGET TELKENS OP IETS GEKLIKT WORDT
+  // VERVANGT DE DIV TARGET TELKENS OP IETS GEKLIKT WORDT
+  var target_populated_score = document.createElement("p");
+  target_populated_score.id = "target_populated_score";
+  var target_populated_score_content = document.createTextNode(
+    `The certainty score that indeed the picture is one of ${plant_name_full} is ${plant_score_final}`
+  );
+  target_populated_score.appendChild(target_populated_score_content);
+
   var target_populated_toxicity = document.createElement("p");
   target_populated_toxicity.id = "target_populated_toxicity";
   var target_populated_toxicity_content = document.createTextNode(
-    `The toxicity of ${plant_name} is ${plant_toxicity_final}`
+    `The toxicity of ${plant_name_full} is ${plant_toxicity_final}`
   );
   target_populated_toxicity.appendChild(target_populated_toxicity_content);
 
   var target_populated_edibility = document.createElement("p");
   target_populated_edibility.id = "target_populated_edibility";
   var target_populated_edibility_content = document.createTextNode(
-    `The edibility of ${plant_name} is ${plant_edibility_final}`
+    `The edibility of ${plant_name_full} is ${plant_edibility_final}`
   );
   target_populated_edibility.appendChild(target_populated_edibility_content);
 
   var target_div = document.createElement("div");
+  target_div.appendChild(target_populated_score);
   target_div.appendChild(target_populated_toxicity);
   target_div.appendChild(target_populated_edibility);
+  
 
   var target = document.getElementById("target");
   var target_parent = target.parentNode;
