@@ -1,4 +1,5 @@
 document.getElementById("run").addEventListener("click", function() {
+  document.getElementById("collapseExample").style.display = "none";
   run_program();
 });
 
