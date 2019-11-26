@@ -60,7 +60,13 @@ opties voor flower, leaf,  bark, fruit icoontjes (github
 https://iconscout.com/github-students
 
 
-// TO DO: OPLETTEN DAT ER OOK WAT GETOOND WORDT BV VOOR "phalaenopsis orchidaceae" 
+// TO DO: OPLETTEN DAT ER OOK WAT GETOOND WORDT BV VOOR "Phalaenopsis Orchidaceae" 
+https://cdn.britannica.com/45/123445-050-37A360E8/Moth-orchid.jpg identificeert wel genus enzo, maar de speciesnaam is niet van de poes
+scientificNameWithoutAuthor = Phalaenopsis spp
+family: Object { scientificNameWithoutAuthor: "Orchidaceae", scientificNameAuthorship: "" }
+​genus: Object { scientificNameWithoutAuthor: "Phalaenopsis", scientificNameAuthorship: "" }
+als ik dan check bij https://plantsdb.xyz/search?genus=Phalaenopsis (dat usda gegevens gebruikt, zit ik vast, want die gegevens zijn gewoon anders
+https://plantsdb.xyz/search?Scientific_Name_x=Phalaenopsis%20Blume
 
 probleem is bij de queries die enkele algemen species teruggeven
 
@@ -76,6 +82,8 @@ then get_plant_id_genus
 .then get_plant_id_full
 
 bij plant-name full: TypeError: data[0] is undefined (soms geen info) edit: eens proberen met if en else om te zien of het bestaat. Nee, lukt niet. eens proberen met element in variabele steken en het er dan uit te halen EDIT: nog eens zien of ik het nu niet opgelelost heb
+edit: heb nu wat if en else in de verschillende functies gezet en error messages in log en ook htmlom de boel op te vangen
+TO DO: eens zien of ik niet met if en else het nog kan verbeteren dat het bv. met genus kan worden opgezocht
 
 ik zou eigenlijk een soort if en else en meerdere fetches en promises moeten kunnen mixen en matchen ...?
 
@@ -84,10 +92,17 @@ nog een manier is om nog eens goed te kijken naar de beschikbare data.: ik moet 
 
 
 TESTEN
+niet gemakkelijk om voorbeelden te vinden
+hoe vinden? https://trefle.io/api/species?toxicity=Slight&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api
+maar beter is om te starten met https://plantsdb.xyz/search?limit=1000&toxicity=Slight&fields=Genus,Species,AcceptedSymbol,Toxicity,Scientific_Name_x (want geen limits op requests)
+werkt dus toch, maar je moet Slight met hoofletter doen
+
 werkend voorbeeld: https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Yarrow_%28Achillea_millefolium%29.jpg/800px-Yarrow_%28Achillea_millefolium%29.jpg
 ZIT WEL NOG IETSTKE IN
 ERRORS VOOR https://ewscripps.brightspotcdn.com/dims4/default/b74f341/2147483647/strip/true/crop/1280x720+0+0/resize/1280x720!/quality/90/?url=https%3A%2F%2Fewscripps.brightspotcdn.com%2Fa2%2Fd6%2Ffe73fefd46259c6fc2994f78a8af%2Fpoison-oak.jpg
 https://www.worldatlas.com/r/w728-h425-c728x425/upload/9a/e7/c1/shutterstock-3434876.jpg (neemt precies object zonder dat main species erin zit ...  (voor https://www.naturescape.co.uk/wp-content/uploads/2017/06/CStjohnwort.jpg werkt het wel bv)
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGej-8gC230TqcrpuekzSSyLYc0O_CPcvwFtp9SEwVrRX_XGiEcw&s (Invalid input request
+
 
 eddyeddyeddyborremans@gmail.com test123 voor http://phylopic.org/api/a/
 
