@@ -113,13 +113,22 @@ https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGej-8gC230TqcrpuekzSSyLYc
 eddyeddyeddyborremans@gmail.com test123 voor http://phylopic.org/api/a/
 
 
-
 Hoe kan ik selectie van organ required maken? Ik heb al eens required op alles gezet en de boel wordt niet tegengehouden
 of ligt dat mss aan mijn manier van de input verzenden?	4
 
 na pauze: stap voor checken of request die mijn programma maakt, correct is (krijg unautheroized error
 https://my-api.plantnet.org/v2/identify/all?images=http%3A%2F%2Fwww.southeasternflora.com%2Fimages%2Fmedium%2FCicuta%2520maculata%2520flower%25201.JPG&organs=flower&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe"
 HEB DAT MET ENCODE URI GEDAAN
+
+
+probleem op mobiel met die cors (op desktop werkt het omdat ik die cors-plugin heb, maar op^mobiel is er nog altijd een probleem, 3 eigenlijk.:
+Hoe heb ik dat probleem gedebugged? https://dev.to/dev0x0/using-google-chrome-console-on-any-mobile-device-9ec
+Access to fetch at 'https://my-api.plantnet.org/v2/identify/all?images=https://images-na.ssl-images-amazon.com/images/I/51nmQrv6zhL._SX425_.jpg&organs=flower&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe' from origin 'https://declercqjan.github.io' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+index.html:1 Uncaught (in promise) TypeError: Failed to fetch
+Promise.then (async)
+run_program @ script.js:73
+(anonymous) @ script.js:53
+script.js:115 Cross-Origin Read Blocking (CORB) blocked cross-origin response https://my-api.plantnet.org/v2/identify/all?images=https://images-na.ssl-images-amazon.com/images/I/51nmQrv6zhL._SX425_.jpg&organs=flower&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe with MIME type application/json. See https://www.chromestatus.com/feature/5629709824032768 for more details.
 
 
 

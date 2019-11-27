@@ -113,7 +113,8 @@ async function get_plant_name_full() {
     `https://my-api.plantnet.org/v2/identify/all?images=${image_url_final}&organs=${organ}&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe`
   );
   return fetch(
-    `https://my-api.plantnet.org/v2/identify/all?images=${image_url_final}&organs=${organ}&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe`
+    `https://cors-anywhere.herokuapp.com/https://my-api.plantnet.org/v2/identify/all?images=${image_url_final}&organs=${organ}&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe`
+    //`https://my-api.plantnet.org/v2/identify/all?images=${image_url_final}&organs=${organ}&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe`
     // DEZE WERKT WEL "https://my-api.plantnet.org/v2/identify/all?images=http%3A%2F%2Fwww.southeasternflora.com%2Fimages%2Fmedium%2FCicuta%2520maculata%2520flower%25201.JPG&organs=flower&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe"
   )
     .then(response => response.json())
@@ -148,8 +149,9 @@ async function get_plant_id_data() {
   return fetch(
     // `https://trefle.io/api/plants?q=${plant_name}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api/`
     // `https://trefle.io/api/species?q=${plant_name_full}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api`
-    `https://trefle.io/api/species?scientific_name=${plant_name_full}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api`
+    `https://cors-anywhere.herokuapp.com/https://trefle.io/api/species?scientific_name=${plant_name_full}&token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api`
   )
+
     .then(response => response.json())
     .then(data => {
       console.log(data);
@@ -209,7 +211,7 @@ async function get_toxicity() {
     );
   } else {
     return fetch(
-      `https://trefle.io/api/plants/${plant_id}?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api`
+      `https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants/${plant_id}?token=cHRTbmY2RXNoVWVQSi9DYmpLTCt6QT09&origin=https://declercqjan.github.io/Startup-with-open-api`
     )
       .then(response => response.json())
       .then(data => {
