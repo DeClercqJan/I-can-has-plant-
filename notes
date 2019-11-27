@@ -53,10 +53,12 @@ mss met een soort placeholder image met een bepaald pad
 TO DO: BEETJE STYLING, MSS MET BOOTSTRAP OFZO 
 
 to do: footer zit in de weg op mijn gsm, hoewel niet in de developer tools aanwezig
+edit: opgelost door text kleiner te maken
 
 (zie ook kladblaadjes. 
 
 voldoene grote knoppen enzo
+in orde
 
 icoontjes voor toxicit: slight, moderate, severe (groen, oranje rood/ doodshoofdjes ?
 opties voor flower, leaf,  bark, fruit icoontjes (github
@@ -65,6 +67,7 @@ https://iconscout.com/github-students
 nu werk ik met toggle collapse (jquery bootstrap) en javascript (eigen) om plaats te maken voor de respons in het geval de isntructies teveel plek innemen	
 -> kijken of ik niet gewoon alles met javascript kan doen, bv. door bootstrap toggle te vervangen met javascript-toggle: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_style_display_toggle + dan in tweede klik een if/else-fucntie te schrijven met als het open is, sluit het. 
 edit: werken met evaluatie die stijn mij heeft gegegeven
+edit: in orde
 
 nog een manier is om nog eens goed te kijken naar de beschikbare data.: ik moet iets selecteren in de planetnet api die dan bruikbaar is voor de tweede
 // TO DO: OPLETTEN DAT ER OOK WAT GETOOND WORDT BV VOOR "Phalaenopsis Orchidaceae" 
@@ -114,8 +117,8 @@ eddyeddyeddyborremans@gmail.com test123 voor http://phylopic.org/api/a/
 
 
 
-Hoe kan ik selectie van organ required maken? Ik heb al eens required op alles gezet en de boel wordt niet tegengehouden
-of ligt dat mss aan mijn manier van de input verzenden?	4
+Hoe kan ik selectie van organ required maken? Ik heb al eens required op alles gezet en de boel wordt niet tegengehouden edit: heb standard checked in html
+of ligt dat mss aan mijn manier van de input verzenden?	
 
 na pauze: stap voor checken of request die mijn programma maakt, correct is (krijg unautheroized error
 https://my-api.plantnet.org/v2/identify/all?images=http%3A%2F%2Fwww.southeasternflora.com%2Fimages%2Fmedium%2FCicuta%2520maculata%2520flower%25201.JPG&organs=flower&include-related-images=false&lang=en&api-key=2a10DxISupBCpFchETM9OpTIe"
@@ -134,6 +137,8 @@ NA DE LUNCHPAUZE EENS PROBEREN SITE ONLINE TE ZETTEN
 EDIT: GEVONDEN: https://css-tricks.com/using-fetch/ kon goede response krijgen, maar dan moest het nog naar json worden omgezet
 
 die no cors plugin van firefox doet geluijk ook wel wat
+
+edit: met link naar proxy-server opgelost
 
 VER TE BEKIJKE NVOOR PROBLEEM VAN GEEN ACCES:
 
