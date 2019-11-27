@@ -1,6 +1,32 @@
+document
+  .getElementById("instructions_button_div")
+  .addEventListener("click", toggle_instructions);
+
+  // source: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_style_display_toggle
+function toggle_instructions() {
+  var x = document.getElementById("instructions");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  // OM ZEKER TE ZIJN DAT ER PLAATS IS VOOR DE INSTRUCTIES OP MOBIEL
+  var y = document.getElementById("target");
+  if (y.style.display === "block") {
+    y.style.display = "none";
+  } else {  
+    y.style.display = "none";
+  }
+}
 
 document.getElementById("run").addEventListener("click", function() {
-    document.getElementById("collapseExample").style.display = "none";
+  // OM ZEKER TE ZIJN DAT ER PLAATS IS VOOR DE RESULTS OP MOBIEL
+  var x = document.getElementById("instructions");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "none";
+  }
   run_program();
 });
 
