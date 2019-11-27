@@ -45,7 +45,6 @@ document.getElementById("run").addEventListener("click", function() {
     if (instructions.style.display === "block") {
       instructions.style.display = "none";
       results.style.display = "block";
-      s;
     } else {
       instructions.style.display = "none";
     }

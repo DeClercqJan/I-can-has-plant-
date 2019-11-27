@@ -17,10 +17,10 @@
     </header>
     <main class="row">
         <article class="container">
-            <div class="row">
+            <div class="row" id="div_1">
                 <h2 class="col-12 col-md-12 text-center">Find out if you can eat a plant</h2>
             </div>
-            <div class="row">
+            <div class="row" id="div_2">
                 <!-- <ol class="col-12 offset-md-1 col-md-4 collapse" id="collapseExample"> -->
                 <ol class="col-12 offset-md-1 col-md-4" id="instructions">
                     <li>take a picture of the plant</li>
@@ -36,35 +36,35 @@
                         id="collapse_button">
                         Instructions
                     </button>
-                </div>             -->  
+                </div>             -->
                 <div class="col-6 offset-3 text-center" id="instructions_button_div">
                     <button class="btn btn-info w-100" type="button">
                         Instructions
                     </button>
                 </div>
-                <form class="col-12 offset-md-1 col-md-4 text-center" action="" method="get" class="form-example">
-                    <div class="form-example">
-                        <label for="image_url">Enter the image URL</label>
-                        <input type="text" name="image_url_name" id="image_url"
-                            value="https://images-na.ssl-images-amazon.com/images/I/51nmQrv6zhL._SX425_.jpg" required>
-                    </div>
-                    <p>Please check what part of the plant the photograph depicts</p>
-                    <div id="organ">
-                        <input type="radio" id="organ_choice_flower" name="organ_choice" value="flower" checked>
-                        <label for="organ_choice_flower">Flower</label>
-                        <input type="radio" id="organ_choice_fruit" name="organ_choice" value="fruit">
-                        <label for="organ_choice_fruit">Fruit</label>
-                        <input type="radio" id="organ_choice_leaf" name="organ_choice" value="leaf">
-                        <label for="organ_choice_leaf">Leaf</label>
-                        <input type="radio" id="organ_choice_bark" name="organ_choice" value="flower">
-                        <label for="organ_choice_bark">Bark</label>
-                    </div>
-                    <div class="col-6 offset-3">
-                        <button type="button" id="run" class="btn btn-info w-100">Find out</button>
-                    </div>
-                </form>
             </div>
-            <div class="row">
+            <form class="col-12 offset-md-1 col-md-4 text-center" action="" method="get" class="form-example" id="div_3">
+                <div class="form-example">
+                    <label for="image_url">Enter the image URL</label>
+                    <input type="text" name="image_url_name" id="image_url"
+                        value="https://images-na.ssl-images-amazon.com/images/I/51nmQrv6zhL._SX425_.jpg" required>
+                </div>
+                <p>Please check what part of the plant the photograph depicts</p>
+                <div id="organ">
+                    <input type="radio" id="organ_choice_flower" name="organ_choice" value="flower" checked>
+                    <label for="organ_choice_flower">Flower</label>
+                    <input type="radio" id="organ_choice_fruit" name="organ_choice" value="fruit">
+                    <label for="organ_choice_fruit">Fruit</label>
+                    <input type="radio" id="organ_choice_leaf" name="organ_choice" value="leaf">
+                    <label for="organ_choice_leaf">Leaf</label>
+                    <input type="radio" id="organ_choice_bark" name="organ_choice" value="flower">
+                    <label for="organ_choice_bark">Bark</label>
+                </div>
+                <div class="col-6 offset-3">
+                    <button type="button" id="run" class="btn btn-info w-100">Find out</button>
+                </div>
+            </form>
+            <div class="row" id="div_4">
                 <div class="col-12 col-md-6 offset-md-3" id="target">
                     <p>The result of your query will be displayed here</p>
                 </div>
