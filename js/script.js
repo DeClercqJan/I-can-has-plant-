@@ -6,7 +6,10 @@ var results = document.getElementById("target");
 window.onresize = resize;
 function resize() {
   if (media_query_mobile.matches) {
-    console.log("resize fires op resize van window en media_query_mobile match");
+    console.log(
+      "resize fires op resize van window en media_query_mobile match"
+    );
+    instructions.style.display = "none";
   } else {
     console.log("resize vuurt, maar geen media_query_mobile match");
     instructions.style.display = "block";
@@ -21,27 +24,28 @@ document
 function toggle_instructions() {
   // FUNCTIONALITEIT MAG ENKEL OP MOBIEL BESTAAN
   if (media_query_mobile.matches) {
+    // OM ZEKER TE ZIJN DAT ER PLAATS IS VOOR DE INSTRUCTIES OP MOBIEL
+    // OM ZEKER TE ZIJN DAT ER PLAATS IS VOOR DE RESULTS OP MOBIEL
     if (instructions.style.display === "none") {
       instructions.style.display = "block";
+      results.style.display = "none";
     } else {
       instructions.style.display = "none";
-    }
-    // OM ZEKER TE ZIJN DAT ER PLAATS IS VOOR DE INSTRUCTIES OP MOBIEL
-    if (results.style.display === "block") {
-      results.style.display = "none";
-    } else {
-      results.style.display = "none";
+      results.style.display = "block";
     }
   } else {
-    console.log("de else van de media_query_mobile matches in toggle_isntructions is 'actief'");
+    console.log(
+      "de else van de media_query_mobile matches in toggle_isntructions is 'actief'"
+    );
   }
 }
 
 document.getElementById("run").addEventListener("click", function() {
-  // OM ZEKER TE ZIJN DAT ER PLAATS IS VOOR DE RESULTS OP MOBIEL
   if (media_query_mobile.matches) {
     if (instructions.style.display === "block") {
       instructions.style.display = "none";
+      results.style.display = "block";
+      s;
     } else {
       instructions.style.display = "none";
     }

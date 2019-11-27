@@ -5,6 +5,7 @@
 html {
   height: 100%;
   min-height: 100%;
+  font-size: 13px; /* reset de verschillende bootstrappen, die afhankelijk zijn van de size van de root (html tag) font size */
 }
 
 body {
@@ -20,6 +21,7 @@ header {
 main {
   height: 70%;
   min-height: 70%;
+  max-height: 70%;
 }
 
 footer {
@@ -40,6 +42,12 @@ footer {
   }
   */
   #instructions_button_div {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #instructions {
     display: none;
   }
 }
