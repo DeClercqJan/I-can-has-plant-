@@ -1,31 +1,54 @@
+const media_query_mobile = window.matchMedia("(max-width: 767px)");
+var instructions = document.getElementById("instructions");
+var results = document.getElementById("target");
+
+// voor scenario: alles werkt goed op mobiel. Ik verberg de instructies, maar ik wil dat ze terug komen op desktop, dus niet van de knop afhankelijk;
+window.onresize = resize;
+function resize() {
+  if (media_query_mobile.matches) {
+    console.log("resize fires op resize van window en media_query_mobile match");
+  } else {
+    console.log("resize vuurt, maar geen media_query_mobile match");
+    instructions.style.display = "block";
+  }
+}
+
 document
   .getElementById("instructions_button_div")
   .addEventListener("click", toggle_instructions);
 
-  // source: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_style_display_toggle
+// source: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_style_display_toggle
 function toggle_instructions() {
-  var x = document.getElementById("instructions");
-  if (x.style.display === "none") {
-    x.style.display = "block";
+  // FUNCTIONALITEIT MAG ENKEL OP MOBIEL BESTAAN
+  if (media_query_mobile.matches) {
+    if (instructions.style.display === "none") {
+      instructions.style.display = "block";
+    } else {
+      instructions.style.display = "none";
+    }
+    // OM ZEKER TE ZIJN DAT ER PLAATS IS VOOR DE INSTRUCTIES OP MOBIEL
+    if (results.style.display === "block") {
+      results.style.display = "none";
+    } else {
+      results.style.display = "none";
+    }
   } else {
-    x.style.display = "none";
-  }
-  // OM ZEKER TE ZIJN DAT ER PLAATS IS VOOR DE INSTRUCTIES OP MOBIEL
-  var y = document.getElementById("target");
-  if (y.style.display === "block") {
-    y.style.display = "none";
-  } else {  
-    y.style.display = "none";
+    console.log("de else van de media_query_mobile matches in toggle_isntructions is 'actief'");
   }
 }
 
 document.getElementById("run").addEventListener("click", function() {
   // OM ZEKER TE ZIJN DAT ER PLAATS IS VOOR DE RESULTS OP MOBIEL
-  var x = document.getElementById("instructions");
-  if (x.style.display === "block") {
-    x.style.display = "none";
+  if (media_query_mobile.matches) {
+    if (instructions.style.display === "block") {
+      instructions.style.display = "none";
+    } else {
+      instructions.style.display = "none";
+    }
   } else {
-    x.style.display = "none";
+    console.log(
+      "de else van de media_query_mobile matches in de functie van de event listener op de fin out-knop is actief is 'actief'"
+    );
   }
   run_program();
 });
