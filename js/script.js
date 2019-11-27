@@ -45,7 +45,6 @@ document.getElementById("run").addEventListener("click", function() {
     if (instructions.style.display === "block") {
       instructions.style.display = "none";
       results.style.display = "block";
-      s;
     } else {
       instructions.style.display = "none";
     }
@@ -54,7 +53,7 @@ document.getElementById("run").addEventListener("click", function() {
       "de else van de media_query_mobile matches in de functie van de event listener op de fin out-knop is actief is 'actief'"
     );
   }
-  // run_program();
+  run_program();
 });
 
 let plant_name = "plant_name (variable to be populated)";
